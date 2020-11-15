@@ -5,10 +5,22 @@ function startSketch(rows, cols) {
     container.style.setProperty('--grid-cols', cols);
     for (i=0;i< (rows * cols);i++) {
         var cell = document.createElement("div");
-        cell.textContent = (i + 1);
         document.getElementById("container").appendChild(cell);
-        cell.classList.add("divSketch");
+        cell.classList.add("cellStyle");
     }
 }
 
-startSketch(4, 4);
+
+
+function addActiveClass() {
+    let hover = document.getElementsByClassName("cellStyle");
+
+    for (let i=0; i<hover.length; i++) {
+        hover[i].addEventListener("mouseenter", function(e) {   
+        hover[i].classList.add("active");
+        })
+    }
+}
+
+startSketch(16, 16);
+addActiveClass();
