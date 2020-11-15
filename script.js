@@ -11,16 +11,30 @@ function startSketch(rows, cols) {
 }
 
 
-
 function addActiveClass() {
     let hover = document.getElementsByClassName("cellStyle");
 
     for (let i=0; i<hover.length; i++) {
-        hover[i].addEventListener("mouseenter", function(e) {   
+        hover[i].addEventListener("mouseover", function(e) {   
         hover[i].classList.add("active");
         })
     }
 }
 
-startSketch(16, 16);
+function clearGrid() {
+
+    let newGridSize
+    do {newGridSize = parseInt(prompt("Enter a number from 1 to 100", 50));
+    }while (isNaN(newGridSize) || newGridSize > 100 || newGridSize < 1);
+
+    const grid = document.getElementById("container");
+    while (grid.firstChild) {
+        grid.removeChild(grid.lastChild);
+    }
+
+    startSketch(newGridSize, newGridSize);
+    addActiveClass();
+}
+
+startSketch(50, 50);
 addActiveClass();
