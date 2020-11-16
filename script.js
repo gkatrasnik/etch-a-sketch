@@ -13,10 +13,12 @@ function startSketch(rows, cols) {
 
 function addActiveClass() {
     let hover = document.getElementsByClassName("cellStyle");
+    
 
     for (let i=0; i<hover.length; i++) {
-        hover[i].addEventListener("mouseover", function(e) {   
-        hover[i].classList.add("active");
+        hover[i].addEventListener("mouseover", function(e) {  
+        let color = document.getElementById("color-picker").value; 
+        hover[i].style.backgroundColor = color;
         })
     }
 }
